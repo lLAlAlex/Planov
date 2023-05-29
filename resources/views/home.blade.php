@@ -149,10 +149,6 @@
                         <i class="fa-solid fa-file" style="color: #ffffff; display: inline;"></i>
                         <a class="nav-link" style="display: inline-block;" href="/note">Notes</a>
                     </li>
-                    <li class="nav-item mt-3 ms-5 ps-3 me-3" id="vbl">
-                        <i class="fa-solid fa-play" style="color: #ffffff; display: inline;"></i>
-                        <a class="nav-link" style="display: inline-block;" href="/vbl">VBL</a>
-                    </li>
                     <li class="nav-item mt-5 ms-5 ps-3 me-3" id="logout">
                         <i class="fa-solid fa-right-from-bracket" style="color: #ffffff; display: inline;"></i>
                         <a class="nav-link" style="display: inline-block;" href="/logout">Logout</a>
