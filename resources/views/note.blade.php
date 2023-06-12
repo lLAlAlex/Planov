@@ -207,18 +207,24 @@
                         <i class="fa-solid fa-file" style="color: #000000; display: inline;"></i>
                         <a class="nav-link" style="color: #000000; display: inline-block;" aria-current="page" href="/note">Notes</a>
                     </li>
+                    <li class="nav-item mt-3 ms-5 ps-3 me-3" id="vbl">
+                        <i class="fa-solid fa-play" style="color: #ffffff; display: inline;"></i>
+                        <a class="nav-link" style="display: inline-block;" href="/vbl">VBL</a>
+                    </li>
                     <li class="nav-item mt-5 ms-5 ps-3 me-3" id="logout">
                         <i class="fa-solid fa-right-from-bracket" style="color: #ffffff; display: inline;"></i>
                         <a class="nav-link" style="display: inline-block;" href="/logout">Logout</a>
                     </li>
                 </ul>
                 <div class="discountad">
-                    <div class="image-container">
-                        <img src="{{ URL::asset('storage/bulan.png') }}">
-                        <p class="adtitle fw-bold">Subscribe</p>
-                        <p class="adsale fw-bold">30%</p>
-                        <p class="adtitle2 fw-bold">Off</p>
-                    </div>
+                    <a href="/subscription">
+                        <div class="image-container">
+                            <img src="{{ URL::asset('storage/bulan.png') }}">
+                            <p class="adtitle fw-bold">Subscribe</p>
+                            <p class="adsale fw-bold">30%</p>
+                            <p class="adtitle2 fw-bold">Off</p>
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -226,7 +232,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="titlebackground">
-                            <p style="font-size: 4vh; color:white">Notes<p>
+                            <p style="font-size: 4vh; color:white; margin: 0px;">Notes<p>
                         </div>
                     </div>
                 </div>
@@ -245,8 +251,11 @@
                             <div class="notecontentbg">
                                 <p class="realnotecontent">{{ Str::limit($n->content, 140) }}</p>
                             </div>
+                            <a href="deletenote/{{ $n->id }}">
+                                <i class="fa-solid fa-trash fa-xl" style="color: black; margin-left: 31vh; margin-top: 4vh; cursor: pointer;"></i>
+                            </a>
                             <a href="editnote/{{ $n->id }}">
-                                <i class="fa-solid fa-pen-to-square fa-2xl" style="color: black; margin-left: 35vh; margin-top: 3vh; cursor: pointer;"></i>
+                                <i class="fa-solid fa-pen-to-square fa-xl" style="color: black; margin-left: 1vh; cursor: pointer;"></i>
                             </a>
                         </div>
                     @endforeach

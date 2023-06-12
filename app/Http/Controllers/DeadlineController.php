@@ -75,4 +75,13 @@ class DeadlineController extends Controller
 
         return redirect('/deadline');
     }
+
+    public function deleteDeadline($id) {
+        $deadline = Deadline::find($id);
+
+        if(isset($deadline)) {
+            $deadline->delete();
+        }
+        return redirect('/deadline');
+    }
 }

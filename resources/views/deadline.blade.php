@@ -189,6 +189,7 @@
         color: black;
         padding: 1vh;
     }
+
 @endsection
 
 @section('js')
@@ -220,25 +221,31 @@
                         <i class="fa-solid fa-file" style="color: #ffffff; display: inline;"></i>
                         <a class="nav-link" style="display: inline-block;" href="/note">Notes</a>
                     </li>
+                    <li class="nav-item mt-3 ms-5 ps-3 me-3" id="vbl">
+                        <i class="fa-solid fa-play" style="color: #ffffff; display: inline;"></i>
+                        <a class="nav-link" style="display: inline-block;" href="/vbl">VBL</a>
+                    </li>
                     <li class="nav-item mt-5 ms-5 ps-3 me-3" id="logout">
                         <i class="fa-solid fa-right-from-bracket" style="color: #ffffff; display: inline;"></i>
                         <a class="nav-link" style="display: inline-block;" href="/logout">Logout</a>
                     </li>
                 </ul>
                 <div class="discountad">
-                    <div class="image-container">
-                        <img src="{{ URL::asset('storage/bulan.png') }}">
-                        <p class="adtitle fw-bold">Subscribe</p>
-                        <p class="adsale fw-bold">30%</p>
-                        <p class="adtitle2 fw-bold">Off</p>
-                    </div>
+                    <a href="/subscription">
+                        <div class="image-container">
+                            <img src="{{ URL::asset('storage/bulan.png') }}">
+                            <p class="adtitle fw-bold">Subscribe</p>
+                            <p class="adsale fw-bold">30%</p>
+                            <p class="adtitle2 fw-bold">Off</p>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="col" style="background-color: white">
                 <div class="row">
                     <div class="col">
                         <div class="titlebackground">
-                            <p style="font-size: 4vh; color:white">Deadlines<p>
+                            <p style="font-size: 4vh; color:white; margin: 0px;">Deadlines<p>
                         </div>
                     </div>
                 </div>
@@ -259,8 +266,11 @@
                             <div class="deadlinecontentbg">
                                 <p class="realdeadlinecontent">{{ Str::limit($d->description, 150) }}</p>
                             </div>
+                            <a href="deletedeadline/{{ $d->id }}">
+                                <i class="fa-solid fa-trash fa-xl" style="color: black; margin-left: 33vh; margin-top: 4vh; cursor: pointer;"></i>
+                            </a>
                             <a href="editdeadline/{{ $d->id }}">
-                                <i class="fa-solid fa-pen-to-square fa-2xl" style="color: black; margin-left: 38vh; margin-top: 4vh; cursor: pointer;"></i>
+                                <i class="fa-solid fa-pen-to-square fa-2xl" style="color: black; margin-left: 2vh; cursor: pointer;"></i>
                             </a>
                         </div>
                     @endforeach

@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Edit Deadline Page')
+@section('title', 'Notes Page')
 
 @section('css')
     .col-3 {
@@ -22,7 +22,7 @@
     .nav-item {
         font-size: 2.5vh;
     }
-    #deadline {
+    #vbl {
         background-color: white;
         border-radius: 5vh;
     }
@@ -118,36 +118,26 @@
         color: white;
         font-size: 3vh;
     }
-    #titlerow {
-        padding-left: 5vh;
-        padding-top: 5vh;
-    }
-    #title {
+    .titlebackground {
         width: 130vh;
-        height: 5vh;
-        font-size: 3vh;
+        height: 8vh;
+        background-color: #3A3FC8;
+        margin-left: 5vh;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
         border-radius: 1vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    #contentrow {
-        padding-left: 5vh;
-        padding-top: 5vh;
+    .video-container {
+        display: flex;
+        margin-left: 5vh;
+        flex-wrap: wrap;
     }
-    #content {
-        width: 130vh;
-        height: 80vh;
-        font-size: 2vh;
-        border-radius: 1vh;
-    }
-    #newnotebtn {
-        margin-top: 3vh;
-        margin-left: 108vh;
-        width: 25vh;
-        height: 5vh;
-        border-radius: 1vh;
-        font-size: 2vh;
-    }
-    .passid {
-        display: none;
+    .media {
+        width: 42vh;
+        margin-right: 2vh;
     }
 @endsection
 
@@ -169,8 +159,8 @@
                         <a class="nav-link" style="display: inline-block;" href="/">Home</a>
                     </li>
                     <li class="nav-item mt-3 ms-5 ps-3 me-3" id="deadline">
-                        <i class="fa-solid fa-clock" style="color: #000000; display: inline;"></i>
-                        <a class="nav-link" style="color: #000000; display: inline-block;" aria-current="page" href="/deadline">Deadline</a>
+                        <i class="fa-solid fa-clock" style="color: #ffffff; display: inline;"></i>
+                        <a class="nav-link" style="display: inline-block;" href="/deadline">Deadline</a>
                     </li>
                     <li class="nav-item mt-3 ms-5 ps-3 me-3" id="list">
                         <i class="fa-solid fa-list-check" style="color: #ffffff; display: inline;"></i>
@@ -178,11 +168,11 @@
                     </li>
                     <li class="nav-item mt-3 ms-5 ps-3 me-3" id="note">
                         <i class="fa-solid fa-file" style="color: #ffffff; display: inline;"></i>
-                        <a class="nav-link" style="display: inline-block;" href="/note">Notes</a>
+                        <a class="nav-link" style="display: inline-block;" aria-current="page" href="/note">Notes</a>
                     </li>
                     <li class="nav-item mt-3 ms-5 ps-3 me-3" id="vbl">
-                        <i class="fa-solid fa-play" style="color: #ffffff; display: inline;"></i>
-                        <a class="nav-link" style="display: inline-block;" href="/vbl">VBL</a>
+                        <i class="fa-solid fa-play" style="color: #000000; display: inline;"></i>
+                        <a class="nav-link" style="color: #000000; display: inline-block;" href="/vbl">VBL</a>
                     </li>
                     <li class="nav-item mt-5 ms-5 ps-3 me-3" id="logout">
                         <i class="fa-solid fa-right-from-bracket" style="color: #ffffff; display: inline;"></i>
@@ -200,22 +190,25 @@
                     </a>
                 </div>
             </div>
+
             <div class="col" style="background-color: white">
-                <form enctype="multipart/form-data" action="/editdeadline" method="POST">
-                    {{ method_field('PUT') }}
-                    @csrf
-                    <div class="row" id="titlerow">
-                        <input id="title" type="text" value="{{ $deadline->title }}" name="title">
+                <div class="row">
+                    <div class="col">
+                        <div class="titlebackground">
+                            <p style="font-size: 4vh; color:white; margin: 0px;">Video Based Learning<p>
+                        </div>
                     </div>
-                    <div class="row" id="titlerow">
-                        <input id="title" type="date" value="{{ $deadline->deadlinedate }}" name="deadlinedate">
-                    </div>
-                    <div class="row" id="contentrow">
-                        <textarea id="content" name="description">{{ $deadline->description }}</textarea>
-                    </div>
-                    <input class="passid" name="id" type="text" value="{{ $deadline->id }}">
-                    <button id="newnotebtn" class="btn btn-primary" type="submit">Save Deadline</button>
-                <form>
+                </div>
+                <div class="video-container">
+                    @foreach ($videos as $v)
+                        <div class="media">
+                            <div class="media-body">
+                                <iframe style="width: 42vh; height: 28vh; border-radius: 1.5vh;" src="{{ $v->link }}" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <p class="fw-bold" style="font-size: 2vh; overflow-wrap:break-word;">{{ $v->title }}</p>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

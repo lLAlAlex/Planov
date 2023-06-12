@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Edit Deadline Page')
+@section('title', 'Subscription Page')
 
 @section('css')
     .col-3 {
@@ -21,10 +21,6 @@
     }
     .nav-item {
         font-size: 2.5vh;
-    }
-    #deadline {
-        background-color: white;
-        border-radius: 5vh;
     }
     .square {
         height: 3vw;
@@ -118,36 +114,45 @@
         color: white;
         font-size: 3vh;
     }
-    #titlerow {
-        padding-left: 5vh;
-        padding-top: 5vh;
-    }
-    #title {
+    .titlebackground {
         width: 130vh;
-        height: 5vh;
-        font-size: 3vh;
+        height: 8vh;
+        background-color: #3A3FC8;
+        margin-left: 5vh;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
         border-radius: 1vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    #contentrow {
-        padding-left: 5vh;
-        padding-top: 5vh;
+    .subscription-container {
+        width: 40vh;
+        height: 45vh;
+        background-color: #0F0F0F;
+        border-radius: 2vh;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        margin-left: 50vh;
+        margin-top: 5vh;
     }
-    #content {
-        width: 130vh;
-        height: 80vh;
+    .subscriptiontitle {
+        font-size: 2.5vh;
+        padding-left: 14vh;
+        margin-top: -9vh;
+        color: white;
+    }
+    .subscriptionprice {
+        font-size: 3.5vh;
+        font-weight: bold;
+        padding-left: 14vh;
+        margin-top: -2.5vh;
+        color: white;
+    }
+    .subscriptionbenefit {
         font-size: 2vh;
-        border-radius: 1vh;
-    }
-    #newnotebtn {
-        margin-top: 3vh;
-        margin-left: 108vh;
-        width: 25vh;
-        height: 5vh;
-        border-radius: 1vh;
-        font-size: 2vh;
-    }
-    .passid {
-        display: none;
+        padding-left: 3vh;
+        margin-top: 5vh;
+        color: white;
     }
 @endsection
 
@@ -169,8 +174,8 @@
                         <a class="nav-link" style="display: inline-block;" href="/">Home</a>
                     </li>
                     <li class="nav-item mt-3 ms-5 ps-3 me-3" id="deadline">
-                        <i class="fa-solid fa-clock" style="color: #000000; display: inline;"></i>
-                        <a class="nav-link" style="color: #000000; display: inline-block;" aria-current="page" href="/deadline">Deadline</a>
+                        <i class="fa-solid fa-clock" style="color: #ffffff; display: inline;"></i>
+                        <a class="nav-link" style="display: inline-block;" href="/deadline">Deadline</a>
                     </li>
                     <li class="nav-item mt-3 ms-5 ps-3 me-3" id="list">
                         <i class="fa-solid fa-list-check" style="color: #ffffff; display: inline;"></i>
@@ -178,11 +183,11 @@
                     </li>
                     <li class="nav-item mt-3 ms-5 ps-3 me-3" id="note">
                         <i class="fa-solid fa-file" style="color: #ffffff; display: inline;"></i>
-                        <a class="nav-link" style="display: inline-block;" href="/note">Notes</a>
+                        <a class="nav-link" style="display: inline-block;" aria-current="page" href="/note">Notes</a>
                     </li>
                     <li class="nav-item mt-3 ms-5 ps-3 me-3" id="vbl">
                         <i class="fa-solid fa-play" style="color: #ffffff; display: inline;"></i>
-                        <a class="nav-link" style="display: inline-block;" href="/vbl">VBL</a>
+                        <a class="nav-link" style="display: inline-block;" aria-current="page" href="/vbl">VBL</a>
                     </li>
                     <li class="nav-item mt-5 ms-5 ps-3 me-3" id="logout">
                         <i class="fa-solid fa-right-from-bracket" style="color: #ffffff; display: inline;"></i>
@@ -200,22 +205,22 @@
                     </a>
                 </div>
             </div>
+
             <div class="col" style="background-color: white">
-                <form enctype="multipart/form-data" action="/editdeadline" method="POST">
-                    {{ method_field('PUT') }}
-                    @csrf
-                    <div class="row" id="titlerow">
-                        <input id="title" type="text" value="{{ $deadline->title }}" name="title">
+                <div class="row">
+                    <div class="col">
+                        <div class="titlebackground">
+                            <p style="font-size: 4vh; color:white; margin: 0px;">Subscription Plan<p>
+                        </div>
                     </div>
-                    <div class="row" id="titlerow">
-                        <input id="title" type="date" value="{{ $deadline->deadlinedate }}" name="deadlinedate">
-                    </div>
-                    <div class="row" id="contentrow">
-                        <textarea id="content" name="description">{{ $deadline->description }}</textarea>
-                    </div>
-                    <input class="passid" name="id" type="text" value="{{ $deadline->id }}">
-                    <button id="newnotebtn" class="btn btn-primary" type="submit">Save Deadline</button>
-                <form>
+                </div>
+                <div class="subscription-container">
+                    <img style="width: 9vh; height: auto; margin-top: 6vh; margin-left: 3vh" src="{{ URL::asset('storage/subscription.png') }}">
+                    <p class="subscriptiontitle">Student</p>
+                    <p class="subscriptionprice">$5/month</p>
+                    <p class="subscriptionbenefit">- No ads</p>
+                    <button type="button" class="btn btn-primary" style="width: 30vh; height: 7vh; margin-left:5vh; margin-top: 10vh; background-color: #3A3FC8; border: none;">Subscribe</button>
+                </div>
             </div>
         </div>
     </div>

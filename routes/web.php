@@ -5,7 +5,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\TodolistController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,3 +45,7 @@ Route::get('/newdeadline', [DeadlineController::class, 'newDeadlineIndex'])->mid
 Route::post('/newdeadline', [DeadlineController::class, 'newDeadline'])->name('newdeadline');
 Route::get('/editdeadline/{id}', [DeadlineController::class, 'editDeadlineIndex'])->middleware('guestauth');
 Route::put('/editdeadline', [DeadlineController::class, 'editDeadline']);
+Route::get('/vbl', [VideoController::class, 'index'])->middleware('guestauth');
+Route::get('/deletedeadline/{id}', [DeadlineController::class, 'deleteDeadline']);
+Route::get('/deletenote/{id}', [NoteController::class, 'deleteNote']);
+Route::get('/subscription', [SubscriptionController::class, 'index'])->middleware('guestauth');

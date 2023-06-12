@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DeadlineSeeder::class);
         $this->call(NoteSeeder::class);
         $this->call(ListSeeder::class);
+        $this->call(VideoSeeder::class);
     }
 }
