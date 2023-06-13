@@ -139,8 +139,8 @@
         border-radius: 1vh;
     }
     #newnotebtn {
-        margin-top: 3vh;
-        margin-left: 114vh;
+        margin-top: 2vh;
+        margin-left: 92vh;
         width: 20vh;
         height: 5vh;
         border-radius: 1vh;
@@ -197,7 +197,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="col" style="background-color: white">
                 <form enctype="multipart/form-data" action="{{ route('newnote') }}" method="POST">
                     @csrf
@@ -207,6 +206,9 @@
                     <div class="row" id="contentrow">
                         <textarea id="content" placeholder="Content" name="content"></textarea>
                     </div>
+                    <i onclick="bold()" style="margin-top: 2vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-bold fa-xl"></i>
+                    <i onclick="italic()" style="margin-top: 2vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-italic fa-xl"></i>
+                    <i onclick="underline()" style="margin-top: 2vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-underline fa-xl"></i>
                     <button id="newnotebtn" class="btn btn-primary" type="submit">Make New Note</button>
                 <form>
             </div>

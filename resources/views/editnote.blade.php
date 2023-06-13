@@ -139,8 +139,8 @@
         border-radius: 1vh;
     }
     #savenotebtn {
-        margin-top: 3vh;
-        margin-left: 114vh;
+        margin-top: 2vh;
+        margin-left: 105vh;
         width: 20vh;
         height: 5vh;
         border-radius: 1vh;
@@ -211,6 +211,9 @@
                         <textarea id="content" name="content">{{ $note->content }}</textarea>
                     </div>
                     <input class="passid" name="id" type="text" value="{{ $note->id }}">
+                    <i onclick="bold()" style="margin-top: 2vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-bold fa-xl"></i>
+                    <i onclick="italic()" style="margin-top: 2vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-italic fa-xl"></i>
+                    <i onclick="underline()" style="margin-top: 2vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-underline fa-xl"></i>
                     <button id="savenotebtn" class="btn btn-primary" type="submit">Save Note</button>
                 <form>
             </div>
