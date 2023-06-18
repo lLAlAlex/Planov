@@ -42,7 +42,7 @@
     #deadlines {
         height: 12vw;
         width: 40vw;
-        background-color: lightblue;
+        background-color: #4E9FE5;
         margin-bottom: 1.5vw;
         margin-left: 3vw;
         border-radius: 1vw;
@@ -58,7 +58,7 @@
     }
     .deadlinedesc {
         font-size: 1vw;
-        color: grey;
+        color: black;
     }
     #notes {
         height: 20vw;

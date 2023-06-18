@@ -25,30 +25,29 @@ class NoteController extends Controller
     }
 
     public function newNote(Request $request) {
-        $notes = new Note();
+        $note = new Note();
         $userId = Auth::id();
 
         if($request->title == "" && $request->content == "") {
-            $notes->userId = $userId;
-            $notes->title = "Untitled";
-            $notes->content = "";
+            $note->title = "Untitled";
+            $note->content = "";
         }
         else if($request->title == "") {
-            $notes->userId = $userId;
-            $notes->title = "Untitled";
-            $notes->content = $request->content;
+            $note->title = "Untitled";
+            $note->content = $request->content;
         }
         else if($request->content == "") {
-            $notes->userId = $userId;
-            $notes->title = $request->title;
-            $notes->content = "";
+            $note->title = $request->title;
+            $note->content = "";
         }
         else {
-            $notes->userId = $userId;
-            $notes->title = $request->title;
-            $notes->content = $request->content;
+            $note->title = $request->title;
+            $note->content = $request->content;
         }
-        $notes->save();
+        $note->userId = $userId;
+        $note->fontsize = $request->fontsize;
+
+        $note->save();
 
         return redirect('/note');
     }
@@ -78,6 +77,8 @@ class NoteController extends Controller
             $note->title = $request->title;
             $note->content = $request->content;
         }
+        $note->fontsize = $request->fontsize;
+
         $note->save();
 
         return redirect('/note');

@@ -25,7 +25,7 @@ class DeadlineController extends Controller
     }
 
     public function newDeadline(Request $request) {
-        $deadlines = new Deadline();
+        $deadline = new Deadline();
         $userId = Auth::id();
 
         $rules = [
@@ -38,12 +38,13 @@ class DeadlineController extends Controller
         if($validator->fails()) {
             return back()->withErrors($validator);
         }
-        $deadlines->userId = $userId;
-        $deadlines->deadlinedate = $request->deadlinedate;
-        $deadlines->title = $request->title;
-        $deadlines->description = $request->description;
+        $deadline->userId = $userId;
+        $deadline->deadlinedate = $request->deadlinedate;
+        $deadline->title = $request->title;
+        $deadline->description = $request->description;
+        $deadline->fontsize = $request->fontsize;
 
-        $deadlines->save();
+        $deadline->save();
 
         return redirect('/deadline');
     }
@@ -70,6 +71,7 @@ class DeadlineController extends Controller
         $deadline->deadlinedate = $request->deadlinedate;
         $deadline->title = $request->title;
         $deadline->description = $request->description;
+        $deadline->fontsize = $request->fontsize;
 
         $deadline->save();
 

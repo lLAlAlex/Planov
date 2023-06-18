@@ -138,13 +138,18 @@
         font-size: 2vh;
         border-radius: 1vh;
     }
-    #newnotebtn {
+    #newdeadlinebtn {
         margin-top: 3vh;
-        margin-left: 108vh;
+        margin-left: 71vh;
         width: 25vh;
         height: 5vh;
         border-radius: 1vh;
         font-size: 2vh;
+    }
+    #fontsizeinput {
+        width: 5vh;
+        margin-left: 2vh;
+        text-align: center;
     }
 @endsection
 
@@ -205,12 +210,18 @@
                         <input id="title" type="text" placeholder="Deadline" name="title">
                     </div>
                     <div class="row" id="titlerow">
-                        <input id="title" type="date" name="deadlinedate">
+                        <input id="title" type="datetime-local" name="deadlinedate">
                     </div>
                     <div class="row" id="contentrow">
                         <textarea id="content" placeholder="Description" name="description"></textarea>
                     </div>
-                    <button id="newnotebtn" class="btn btn-primary" type="submit">Make New Deadline</button>
+                    <i onclick="bold()" style="margin-top: 3vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-bold fa-xl"></i>
+                    <i onclick="italic()" style="margin-left: 4vh; cursor: pointer;" class="fa-solid fa-italic fa-xl"></i>
+                    <i onclick="underline()" style="margin-left: 4vh; cursor: pointer;" class="fa-solid fa-underline fa-xl"></i>
+                    <i onclick="decreasefontsize()" style="margin-left: 4vh; cursor: pointer;" class="fa-solid fa-minus fa-xl"></i>
+                    <input type="text" id="fontsizeinput" name="fontsize" readonly>
+                    <i onclick="increasefontsize()" style="margin-left: 2vh; cursor: pointer;" class="fa-solid fa-plus fa-xl"></i>
+                    <button id="newdeadlinebtn" class="btn btn-primary" type="submit">Make New Deadline</button>
                 <form>
             </div>
         </div>

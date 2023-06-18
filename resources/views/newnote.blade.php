@@ -140,11 +140,16 @@
     }
     #newnotebtn {
         margin-top: 2vh;
-        margin-left: 92vh;
+        margin-left: 76vh;
         width: 20vh;
         height: 5vh;
         border-radius: 1vh;
         font-size: 2vh;
+    }
+    #fontsizeinput {
+        width: 5vh;
+        margin-left: 2vh;
+        text-align: center;
     }
 @endsection
 
@@ -206,9 +211,12 @@
                     <div class="row" id="contentrow">
                         <textarea id="content" placeholder="Content" name="content"></textarea>
                     </div>
-                    <i onclick="bold()" style="margin-top: 2vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-bold fa-xl"></i>
-                    <i onclick="italic()" style="margin-top: 2vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-italic fa-xl"></i>
-                    <i onclick="underline()" style="margin-top: 2vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-underline fa-xl"></i>
+                    <i onclick="bold()" style="margin-top: 3vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-bold fa-xl"></i>
+                    <i onclick="italic()" style="margin-left: 4vh; cursor: pointer;" class="fa-solid fa-italic fa-xl"></i>
+                    <i onclick="underline()" style="margin-left: 4vh; cursor: pointer;" class="fa-solid fa-underline fa-xl"></i>
+                    <i onclick="decreasefontsize()" style="margin-left: 4vh; cursor: pointer;" class="fa-solid fa-minus fa-xl"></i>
+                    <input type="text" id="fontsizeinput" name="fontsize" readonly>
+                    <i onclick="increasefontsize()" style="margin-left: 2vh; cursor: pointer;" class="fa-solid fa-plus fa-xl"></i>
                     <button id="newnotebtn" class="btn btn-primary" type="submit">Make New Note</button>
                 <form>
             </div>

@@ -135,12 +135,11 @@
     #content {
         width: 130vh;
         height: 80vh;
-        font-size: 2vh;
         border-radius: 1vh;
     }
     #savenotebtn {
         margin-top: 2vh;
-        margin-left: 105vh;
+        margin-left: 76vh;
         width: 20vh;
         height: 5vh;
         border-radius: 1vh;
@@ -148,6 +147,11 @@
     }
     .passid {
         display: none;
+    }
+    #fontsizeinput {
+        width: 5vh;
+        margin-left: 2vh;
+        text-align: center;
     }
 @endsection
 
@@ -208,12 +212,15 @@
                         <input id="title" value="{{ $note->title }}" name="title">
                     </div>
                     <div class="row" id="contentrow">
-                        <textarea id="content" name="content">{{ $note->content }}</textarea>
+                        <textarea id="content" name="content" style="font-size: {{ $note->fontsize }}pt">{{ $note->content }}</textarea>
                     </div>
                     <input class="passid" name="id" type="text" value="{{ $note->id }}">
-                    <i onclick="bold()" style="margin-top: 2vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-bold fa-xl"></i>
-                    <i onclick="italic()" style="margin-top: 2vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-italic fa-xl"></i>
-                    <i onclick="underline()" style="margin-top: 2vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-underline fa-xl"></i>
+                    <i onclick="bold()" style="margin-top: 3vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-bold fa-xl"></i>
+                    <i onclick="italic()" style="margin-left: 4vh; cursor: pointer;" class="fa-solid fa-italic fa-xl"></i>
+                    <i onclick="underline()" style="margin-left: 4vh; cursor: pointer;" class="fa-solid fa-underline fa-xl"></i>
+                    <i onclick="decreasefontsize()" style="margin-left: 4vh; cursor: pointer;" class="fa-solid fa-minus fa-xl"></i>
+                    <input type="text" id="fontsizeinput" name="fontsize" readonly>
+                    <i onclick="increasefontsize()" style="margin-left: 2vh; cursor: pointer;" class="fa-solid fa-plus fa-xl"></i>
                     <button id="savenotebtn" class="btn btn-primary" type="submit">Save Note</button>
                 <form>
             </div>

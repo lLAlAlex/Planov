@@ -135,12 +135,11 @@
     #content {
         width: 130vh;
         height: 80vh;
-        font-size: 2vh;
         border-radius: 1vh;
     }
-    #newnotebtn {
+    #editdeadlinebtn {
         margin-top: 3vh;
-        margin-left: 108vh;
+        margin-left: 71vh;
         width: 25vh;
         height: 5vh;
         border-radius: 1vh;
@@ -148,6 +147,11 @@
     }
     .passid {
         display: none;
+    }
+    #fontsizeinput {
+        width: 5vh;
+        margin-left: 2vh;
+        text-align: center;
     }
 @endsection
 
@@ -208,13 +212,19 @@
                         <input id="title" type="text" value="{{ $deadline->title }}" name="title">
                     </div>
                     <div class="row" id="titlerow">
-                        <input id="title" type="date" value="{{ $deadline->deadlinedate }}" name="deadlinedate">
+                        <input id="title" type="datetime-local" value="{{ $deadline->deadlinedate }}" name="deadlinedate">
                     </div>
                     <div class="row" id="contentrow">
-                        <textarea id="content" name="description">{{ $deadline->description }}</textarea>
+                        <textarea id="content" name="description" style="font-size: {{ $deadline->fontsize }}pt">{{ $deadline->description }}</textarea>
                     </div>
                     <input class="passid" name="id" type="text" value="{{ $deadline->id }}">
-                    <button id="newnotebtn" class="btn btn-primary" type="submit">Save Deadline</button>
+                    <i onclick="bold()" style="margin-top: 3vh; margin-left: 4vh; cursor: pointer;" class="fa-solid fa-bold fa-xl"></i>
+                    <i onclick="italic()" style="margin-left: 4vh; cursor: pointer;" class="fa-solid fa-italic fa-xl"></i>
+                    <i onclick="underline()" style="margin-left: 4vh; cursor: pointer;" class="fa-solid fa-underline fa-xl"></i>
+                    <i onclick="decreasefontsize()" style="margin-left: 4vh; cursor: pointer;" class="fa-solid fa-minus fa-xl"></i>
+                    <input type="text" id="fontsizeinput" name="fontsize" readonly>
+                    <i onclick="increasefontsize()" style="margin-left: 2vh; cursor: pointer;" class="fa-solid fa-plus fa-xl"></i>
+                    <button id="editdeadlinebtn" class="btn btn-primary" type="submit">Save Deadline</button>
                 <form>
             </div>
         </div>

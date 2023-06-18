@@ -147,14 +147,14 @@
     .deadlinetitle {
         font-size: 3vh;
         font-weight: bold;
-        margin-left: 13vh;
+        text-align: center;
         margin-top: 3vh;
     }
     .deadlinedate {
         font-size: 3vh;
         font-weight: bold;
-        margin-left: 13vh;
-        margin-top: 1vh;
+        text-align: center;
+        margin: 1.5vh;
     }
     .deadlinecontentbg {
         width: 40vh;
@@ -252,7 +252,7 @@
                 <div class="deadline-container">
                     <div class="deadlinelist">
                         <p class="deadlinetitle">Deadline Title</p>
-                        <p class="deadlinedate">Deadline Date</p>
+                        <p class="deadlinedate">Deadline Date & Time</p>
                         <div class="deadlinecontentbg">
                             <a href="/newdeadline" style="text-decoration: none;">
                                 <p class="deadlinecontent">+</p>

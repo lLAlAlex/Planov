@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('userID');
             $table->foreign('userID')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->date('deadlinedate');
+            $table->dateTime('deadlinedate');
             $table->string('title');
             $table->string('description');
+            $table->integer('fontsize');
             $table->timestamps();
         });
     }

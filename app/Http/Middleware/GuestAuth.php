@@ -18,7 +18,7 @@ class GuestAuth
     public function handle(Request $request, Closure $next)
     {
         if(!Auth::user()) {
-            return redirect('/register');
+            return redirect('/login');
         }
         return $next($request);
     }
